@@ -1,0 +1,324 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-system
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: laptop-apps
+  description: Apps and projects hosted on this laptop
+  tags:
+    - demo
+    - local
+spec:
+  owner: guests
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: daytray
+  description: Day trading / autotrading web app
+  tags:
+    - react
+    - trading
+  annotations:
+    local.path: /Users/rolandocintron/projects/daytray
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/daytray/
+spec:
+  type: website
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: botalytics
+  description: Bot analytics project
+  tags:
+    - analytics
+  annotations:
+    local.path: /Users/rolandocintron/projects/botalytics
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/botalytics/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: express-api-server
+  description: Express API server
+  tags:
+    - node
+    - api
+  annotations:
+    local.path: /Users/rolandocintron/projects/express-api-server
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/express-api-server/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: reactnotes
+  description: React notes application
+  tags:
+    - react
+  annotations:
+    local.path: /Users/rolandocintron/projects/reactnotes
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/reactnotes/
+spec:
+  type: website
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: resume-product
+  description: Resume product with admin, backend, and infra
+  tags:
+    - fullstack
+  annotations:
+    local.path: /Users/rolandocintron/projects/resume-product
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/resume-product/
+spec:
+  type: website
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tradingapp
+  description: Python trading application
+  tags:
+    - python
+    - trading
+  annotations:
+    local.path: /Users/rolandocintron/projects/tradingapp
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/tradingapp/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rolandocintron-com
+  description: Personal website rolandocintron.com
+  tags:
+    - website
+  annotations:
+    local.path: /Users/rolandocintron/projects/rolandocintron.com
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/rolandocintron.com/
+spec:
+  type: website
+  lifecycle: production
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sandysuite-com
+  description: Sandy Suite website
+  tags:
+    - website
+  annotations:
+    local.path: /Users/rolandocintron/projects/sandysuite.com
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/sandysuite.com/
+spec:
+  type: website
+  lifecycle: production
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mac-gpu-monitoring
+  description: Local Mac GPU monitoring stack (Prometheus/Grafana)
+  tags:
+    - monitoring
+    - observability
+  annotations:
+    local.path: /Users/rolandocintron/projects/mac-gpu-monitoring
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/mac-gpu-monitoring/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: flowwise
+  description: Flowwise project
+  annotations:
+    local.path: /Users/rolandocintron/projects/flowwise
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/flowwise/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: influencer-aid
+  description: InfluencerAid product and infra
+  tags:
+    - infra
+  annotations:
+    local.path: /Users/rolandocintron/projects/InfluencerAid
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/InfluencerAid/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: options-llm
+  description: Options trading LLM / Ollama Modelfile
+  tags:
+    - llm
+    - ai
+  annotations:
+    local.path: /Users/rolandocintron/projects/options-llm
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/options-llm/
+spec:
+  type: library
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: vscode-background-process-tracker
+  description: VS Code background process tracker
+  tags:
+    - vscode
+    - extension
+  annotations:
+    local.path: /Users/rolandocintron/projects/vscode-background-process-tracker
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/vscode-background-process-tracker/
+spec:
+  type: library
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: simple-react-website
+  description: Simple React website
+  tags:
+    - react
+  annotations:
+    local.path: /Users/rolandocintron/projects/simpleReactWebsite
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/simpleReactWebsite/
+spec:
+  type: website
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 1st-rag
+  description: First RAG experiment
+  tags:
+    - ai
+    - rag
+  annotations:
+    local.path: /Users/rolandocintron/projects/1stRag
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/1stRag/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aws-certified-ai
+  description: AWS Certified AI study / project work
+  tags:
+    - aws
+    - ai
+  annotations:
+    local.path: /Users/rolandocintron/projects/aws-certified-ai
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/aws-certified-ai/
+spec:
+  type: library
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: robinhood
+  description: Robinhood-related project
+  tags:
+    - trading
+  annotations:
+    local.path: /Users/rolandocintron/projects/robinhood
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/robinhood/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: openai-course
+  description: OpenAI course materials
+  tags:
+    - ai
+    - course
+  annotations:
+    local.path: /Users/rolandocintron/projects/openai-course
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/openai-course/
+spec:
+  type: library
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-demo
+  description: This Backstage developer portal (local interview demo)
+  tags:
+    - backstage
+    - platform
+  annotations:
+    local.path: /Users/rolandocintron/projects/backstage
+    backstage.io/source-location: url:file:///Users/rolandocintron/projects/backstage/
+spec:
+  type: website
+  lifecycle: experimental
+  owner: guests
+  system: laptop-apps

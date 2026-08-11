@@ -1,5 +1,5 @@
 app:
-  title: Scaffolded Backstage App
+  title: Rolando's Developer Portal
   baseUrl: http://localhost:3000
 
   # Enable all packages by default, this will discover packages from packages/app/package.json
@@ -12,7 +12,7 @@ app:
           path: /
 
 organization:
-  name: My Company
+  name: Rolando Demo
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -73,7 +73,7 @@ proxy:
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generator:
-    runIn: 'docker' # Alternatives - 'local'
+    runIn: 'local' # Alternatives - 'docker' (requires Docker)
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
@@ -105,6 +105,10 @@ catalog:
   rules:
     - allow: [Component, System, API, Resource, Location]
   locations:
+    # Apps and projects on this laptop (~/projects)
+    - type: file
+      target: ../../examples/laptop-apps/catalog-info.yaml
+
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
       target: ../../examples/entities.yaml
@@ -112,6 +116,12 @@ catalog:
     # Local example template
     - type: file
       target: ../../examples/template/template.yaml
+      rules:
+        - allow: [Template]
+
+    # iPhone / SwiftUI software template (scaffolds to ./scaffolded)
+    - type: file
+      target: ../../templates/iphone-app/template.yaml
       rules:
         - allow: [Template]
 
@@ -141,5 +151,5 @@ permission:
 
 # see https://backstage.io/docs/ai/mcp-actions for more details
 mcpActions:
-  name: 'My Company Backstage' # defaults to "backstage"
-  description: 'Tools for managing your software catalog, creating new services from templates, and exploring your developer portal' # optional
+  name: "Rolando's Developer Portal"
+  description: 'Tools for managing your software catalog, creating new services from templates, and exploring your developer portal'

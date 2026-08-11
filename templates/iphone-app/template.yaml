@@ -1,0 +1,88 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: iphone-app
+  title: iPhone App
+  description: Scaffold a SwiftUI iPhone app to a local folder (no GitHub required)
+  tags:
+    - ios
+    - swiftui
+    - mobile
+    - recommended
+spec:
+  owner: user:guest
+  type: website
+
+  parameters:
+    - title: App details
+      required:
+        - name
+        - bundleId
+      properties:
+        name:
+          title: App Name
+          type: string
+          description: Display name and folder name for the iPhone app
+          ui:autofocus: true
+          pattern: '^[a-zA-Z][a-zA-Z0-9]*$'
+          ui:help: 'Letters and numbers only, starting with a letter (e.g. DemoNotes)'
+        description:
+          title: Description
+          type: string
+          description: Short description shown in the Software Catalog
+          default: A SwiftUI iPhone app scaffolded from Backstage
+        bundleId:
+          title: Bundle Identifier
+          type: string
+          description: iOS bundle ID
+          default: com.example.DemoApp
+          pattern: '^[a-z][a-z0-9-]*(\.[a-zA-Z0-9-]+)+$'
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+          default: guests
+
+  steps:
+    - id: fetch-base
+      name: Fetch iOS skeleton
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          name: ${{ parameters.name }}
+          description: ${{ parameters.description }}
+          bundleId: ${{ parameters.bundleId }}
+          owner: ${{ parameters.owner }}
+
+    - id: publish
+      name: Publish to local filesystem
+      action: publish:filesystem
+      input:
+        path: ${{ parameters.name }}
+        catalogInfoPath: catalog-info.yaml
+
+    - id: notify
+      name: Notify
+      action: notification:send
+      input:
+        recipients: entity
+        entityRefs:
+          - user:default/guest
+        title: iPhone app scaffolded
+        info: '${{ parameters.name }} was written under scaffolded/${{ parameters.name }}'
+        severity: normal
+
+  output:
+    links:
+      - title: Local project path
+        url: file://${{ steps['publish'].output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['publish'].output.entityRef }}
+      - title: Catalog info
+        url: ${{ steps['publish'].output.catalogInfoUrl }}
