@@ -10,6 +10,10 @@ app:
     - page:catalog:
         config:
           path: /
+    - entity-content:snyk:
+        config:
+          path: /security
+          title: Security
 
 organization:
   name: Rolando Demo
@@ -59,12 +63,20 @@ integrations:
     #   token: ${GHE_TOKEN}
 
 proxy:
-  ### Example for how to add a proxy endpoint for the frontend.
-  ### A typical reason to do this is to handle HTTPS and CORS for internal services.
-  # endpoints:
-  #   '/test':
-  #     target: 'https://example.com'
-  #     changeOrigin: true
+  endpoints:
+    '/snyk':
+      target: https://api.snyk.io/
+      headers:
+        User-Agent: tech-services/backstage-plugin/1.x
+        Authorization: token ${SNYK_TOKEN}
+      # Demo mode uses snyk.mocked=true and does not require a real token.
+
+snyk:
+  # Local interview demo: use built-in mock vulnerability data (no Snyk paid plan required).
+  # Set mocked: false and export SNYK_TOKEN to use a real Snyk org.
+  mocked: true
+  appHost: app.snyk.io
+  showResolvedInGraphs: false
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs

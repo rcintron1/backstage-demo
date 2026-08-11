@@ -68,6 +68,12 @@ First-time setup for that MCP package:
 cd mcp-servers/template-help && yarn install
 ```
 
+### 5. Snyk Security tab
+
+Catalog entity pages for annotated components (e.g. `daytray`, `express-api-server`, `resume-product`) show a **Security** tab and overview card with Snyk findings.
+
+This demo uses **mocked** Snyk data (`snyk.mocked: true` in `app-config.yaml`) so no paid Snyk token is required. To use a real org, set `mocked: false` and export `SNYK_TOKEN`.
+
 
 ## Layout
 
