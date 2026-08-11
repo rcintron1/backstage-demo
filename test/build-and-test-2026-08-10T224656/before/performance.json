@@ -1,0 +1,18 @@
+{
+  "phase": "before",
+  "capturedAt": "2026-08-10T22:47:46.509951-04:00",
+  "suite": {
+    "command": "yarn tsc && yarn test --watchAll=false --passWithNoTests",
+    "exitCode": 0,
+    "wallSeconds": 9.71,
+    "userSeconds": 9.030000000000001,
+    "sysSeconds": 2.71,
+    "parts": {
+      "tscWallSeconds": 2.85,
+      "testWallSeconds": 6.86
+    }
+  },
+  "extra": {
+    "notes": "Baseline on main demo before MCP chatbot"
+  }
+}

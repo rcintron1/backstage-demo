@@ -51,6 +51,24 @@ Classic circular radar with rings **Adopt → Trial → Assess → Hold** (insid
 
 Demo data lives in [`packages/app/src/lib/techRadarData.ts`](packages/app/src/lib/techRadarData.ts).
 
+### 4. MCP Chat (template help)
+
+Requires **Ollama** running locally with model `qwen2.5:7b-instruct`:
+
+```sh
+ollama pull qwen2.5:7b-instruct
+ollama serve   # if not already running
+```
+
+Sidebar → **MCP Chat** (or `/mcp-chat`). Ask how to use the example templates; the chat uses a local MCP server at [`mcp-servers/template-help`](mcp-servers/template-help).
+
+First-time setup for that MCP package:
+
+```sh
+cd mcp-servers/template-help && yarn install
+```
+
+
 ## Layout
 
 | Path | Purpose |

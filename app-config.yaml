@@ -98,6 +98,36 @@ auth:
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
+mcpChat:
+  providers:
+    - id: ollama
+      baseUrl: 'http://localhost:11434'
+      model: qwen2.5:7b-instruct
+      maxTokens: 2048
+      temperature: 0.3
+  systemPrompt: >
+    You are a helpful assistant for Rolando's Developer Portal (Backstage).
+    Prefer using the template-help MCP tools when users ask how to use Software Templates,
+    especially the iPhone App template and the Example Node.js template.
+    Be concise and give numbered steps when explaining how to run a template.
+  mcpServers:
+    - id: template-help
+      name: Template Help
+      scriptPath: '/Users/rolandocintron/projects/backstage/mcp-servers/template-help/server.js'
+  quickPrompts:
+    - title: 'How do I use the iPhone App template?'
+      description: 'Step-by-step guide for the local SwiftUI scaffold'
+      prompt: 'How do I use the iPhone App software template in this Backstage portal?'
+      category: Templates
+    - title: 'List example templates'
+      description: 'Show available example templates'
+      prompt: 'List the example software templates and briefly describe each one.'
+      category: Templates
+    - title: 'iPhone vs Node.js template'
+      description: 'Choose the right template for a demo'
+      prompt: 'Should I use the iPhone App template or the Example Node.js template for a local interview demo?'
+      category: Templates
+
 catalog:
   import:
     entityFilename: catalog-info.yaml

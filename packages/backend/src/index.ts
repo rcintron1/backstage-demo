@@ -70,7 +70,9 @@ backend.add(import('@backstage/plugin-user-settings-backend'));
 backend.add(import('@backstage/plugin-notifications-backend'));
 backend.add(import('@backstage/plugin-signals-backend'));
 
-// mcp actions plugin
 backend.add(import('@backstage/plugin-mcp-actions-backend'));
+
+// MCP Chat (Ollama + local template-help MCP)
+backend.add(import('@backstage-community/plugin-mcp-chat-backend'));
 
 backend.start();
