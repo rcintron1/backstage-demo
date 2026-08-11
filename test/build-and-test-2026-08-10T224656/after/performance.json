@@ -1,0 +1,20 @@
+{
+  "phase": "after",
+  "capturedAt": "2026-08-10T22:53:28.609949-04:00",
+  "suite": {
+    "command": "yarn tsc && yarn test --watchAll=false --passWithNoTests",
+    "exitCode": 0,
+    "wallSeconds": 7.0,
+    "userSeconds": 7.07,
+    "sysSeconds": 1.35,
+    "parts": {
+      "tscWallSeconds": 2.74,
+      "testWallSeconds": 4.26
+    }
+  },
+  "extra": {
+    "chatToolsUsed": true,
+    "provider": "ollama/qwen2.5:7b-instruct",
+    "mcpServer": "template-help"
+  }
+}

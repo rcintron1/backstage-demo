@@ -22,6 +22,8 @@ metadata:
   annotations:
     local.path: /Users/rolandocintron/projects/daytray
     backstage.io/source-location: url:file:///Users/rolandocintron/projects/daytray/
+    snyk.io/org-id: 023b8e67-44a0-2c22-8f12-928afd5555a6
+    snyk.io/project-ids: a484781c-1a88-4d3a-b388-c1374f1148b1,29ee792c-6d39-45a3-a3db-c38fa52d44c3
 spec:
   type: website
   lifecycle: experimental
@@ -55,6 +57,8 @@ metadata:
   annotations:
     local.path: /Users/rolandocintron/projects/express-api-server
     backstage.io/source-location: url:file:///Users/rolandocintron/projects/express-api-server/
+    snyk.io/org-id: 023b8e67-44a0-2c22-8f12-928afd5555a6
+    snyk.io/project-ids: 895278ab-0b64-42c0-a69d-96ef4705f164
 spec:
   type: service
   lifecycle: experimental
@@ -87,6 +91,8 @@ metadata:
   annotations:
     local.path: /Users/rolandocintron/projects/resume-product
     backstage.io/source-location: url:file:///Users/rolandocintron/projects/resume-product/
+    snyk.io/org-id: 023b8e67-44a0-2c22-8f12-928afd5555a6
+    snyk.io/project-ids: 0bc4da77-ee44-4ce9-b33e-39edaa2ae1e9
 spec:
   type: website
   lifecycle: experimental
@@ -317,6 +323,8 @@ metadata:
   annotations:
     local.path: /Users/rolandocintron/projects/backstage
     backstage.io/source-location: url:file:///Users/rolandocintron/projects/backstage/
+    snyk.io/org-id: 023b8e67-44a0-2c22-8f12-928afd5555a6
+    snyk.io/project-ids: a484781c-1a88-4d3a-b388-c1374f1148b1
 spec:
   type: website
   lifecycle: experimental

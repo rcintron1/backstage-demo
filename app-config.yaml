@@ -10,6 +10,10 @@ app:
     - page:catalog:
         config:
           path: /
+    - entity-content:snyk:
+        config:
+          path: /security
+          title: Security
 
 organization:
   name: Rolando Demo
@@ -59,12 +63,20 @@ integrations:
     #   token: ${GHE_TOKEN}
 
 proxy:
-  ### Example for how to add a proxy endpoint for the frontend.
-  ### A typical reason to do this is to handle HTTPS and CORS for internal services.
-  # endpoints:
-  #   '/test':
-  #     target: 'https://example.com'
-  #     changeOrigin: true
+  endpoints:
+    '/snyk':
+      target: https://api.snyk.io/
+      headers:
+        User-Agent: tech-services/backstage-plugin/1.x
+        Authorization: token ${SNYK_TOKEN}
+      # Demo mode uses snyk.mocked=true and does not require a real token.
+
+snyk:
+  # Local interview demo: use built-in mock vulnerability data (no Snyk paid plan required).
+  # Set mocked: false and export SNYK_TOKEN to use a real Snyk org.
+  mocked: true
+  appHost: app.snyk.io
+  showResolvedInGraphs: false
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs
@@ -97,6 +109,36 @@ auth:
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
+
+mcpChat:
+  providers:
+    - id: ollama
+      baseUrl: 'http://localhost:11434'
+      model: qwen2.5:7b-instruct
+      maxTokens: 2048
+      temperature: 0.3
+  systemPrompt: >
+    You are a helpful assistant for Rolando's Developer Portal (Backstage).
+    Prefer using the template-help MCP tools when users ask how to use Software Templates,
+    especially the iPhone App template and the Example Node.js template.
+    Be concise and give numbered steps when explaining how to run a template.
+  mcpServers:
+    - id: template-help
+      name: Template Help
+      scriptPath: '/Users/rolandocintron/projects/backstage/mcp-servers/template-help/server.js'
+  quickPrompts:
+    - title: 'How do I use the iPhone App template?'
+      description: 'Step-by-step guide for the local SwiftUI scaffold'
+      prompt: 'How do I use the iPhone App software template in this Backstage portal?'
+      category: Templates
+    - title: 'List example templates'
+      description: 'Show available example templates'
+      prompt: 'List the example software templates and briefly describe each one.'
+      category: Templates
+    - title: 'iPhone vs Node.js template'
+      description: 'Choose the right template for a demo'
+      prompt: 'Should I use the iPhone App template or the Example Node.js template for a local interview demo?'
+      category: Templates
 
 catalog:
   import:
